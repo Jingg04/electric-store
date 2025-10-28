@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    />
+
+    <!-- Vite does NOT replace %VITE_APP_LOGO%, so we inject it dynamically -->
+    <script type="module">
+      const logo = import.meta.env.VITE_APP_LOGO || '/favicon.png';
+      const title = import.meta.env.VITE_APP_TITLE || 'Electric Store';
+      const analyticsEndpoint = import.meta.env.VITE_ANALYTICS_ENDPOINT;
+      const websiteId = import.meta.env.VITE_ANALYTICS_WEBSITE_ID;
+
+      document.title = title;
+
+      // Set favicon dynamically
+      const link = document.createElement('link');
+      link.rel = 'icon';
+      link.type = 'image/png';
+      link.href = logo;
+      document.head.appendChild(link);
+
+      const appleIcon = document.createElement('link');
+      appleIcon.rel = 'apple-touch-icon';
+      appleIcon.href = logo;
+      document.head.appendChild(appleIcon);
+
+      // Optionally add analytics
+      if (analyticsEndpoint && websiteId) {
+        const script = document.createElement('script');
+        script.defer = true;
+        script.src = `${analyticsEndpoint}/umami`;
+        script.dataset.websiteId = websiteId;
+        document.head.appendChild(script);
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
