@@ -49,12 +49,12 @@ export default function Profile() {
     return saved
       ? JSON.parse(saved)
       : {
-          firstName: "Alex",
-          lastName: "Johnson",
-          email: "alex.johnson@example.com",
-          phone: "+1 (555) 123-4567",
-          address: "123 Tech Street",
-          city: "San Francisco",
+          firstName: "Samnang",
+          lastName: "Srey",
+          email: "samnang.srey@example.com",
+          phone: "089891474",
+          address: "38 Street",
+          city: "Phnom Penh",
           zipCode: "94105",
           profileImage:
             "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
